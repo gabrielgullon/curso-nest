@@ -28,7 +28,7 @@ export class CoursesController {
   }
 
   @Get(':id')
-  find(@Param('id') id: string) {
+  find(@Param('id') id: number) {
     return this.courseService.findOne(id);
   }
 
@@ -42,13 +42,13 @@ export class CoursesController {
   // @Patch -- apenas uma informação
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCourseDTO: UpdateCourseDTO) {
+  update(@Param('id') id: number, @Body() updateCourseDTO: UpdateCourseDTO) {
     return this.courseService.update(id, updateCourseDTO);
   }
 
   @HttpCode(HttpStatus.NO_CONTENT)
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     // tenho que desestruturar o parametro corretamente
     return this.courseService.remove(id);
   }
